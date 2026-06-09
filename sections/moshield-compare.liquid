@@ -1,0 +1,118 @@
+{% schema %}
+{
+  "name": "MoShield Compare",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Why MoShield?"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Comparison Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Name"
+        },
+        {
+          "type": "checkbox",
+          "id": "moshield",
+          "label": "MoShield Has It",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "sprays",
+          "label": "Sprays Have It",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "creams",
+          "label": "Creams Have It",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "traditional",
+          "label": "Traditional Solutions Have It",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MoShield Compare",
+      "blocks": [
+        { "type": "feature", "settings": { "title": "Convenience", "moshield": true, "sprays": false, "creams": false, "traditional": false } },
+        { "type": "feature", "settings": { "title": "Comfort", "moshield": true, "sprays": false, "creams": false, "traditional": true } },
+        { "type": "feature", "settings": { "title": "Mess-Free Use", "moshield": true, "sprays": false, "creams": false, "traditional": false } },
+        { "type": "feature", "settings": { "title": "Portable", "moshield": true, "sprays": true, "creams": true, "traditional": false } },
+        { "type": "feature", "settings": { "title": "Reusable", "moshield": true, "sprays": false, "creams": false, "traditional": false } },
+        { "type": "feature", "settings": { "title": "Travel Friendly", "moshield": true, "sprays": true, "creams": true, "traditional": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="moshield-section">
+  <div style="text-align: center; margin-bottom: 4rem;">
+    <h2 class="moshield-title-large">{{ section.settings.headline }}</h2>
+  </div>
+
+  <div style="overflow-x: auto; padding: 1rem;">
+    <table class="moshield-compare-table">
+      <thead>
+        <tr>
+          <th>Features</th>
+          <th class="highlight">MoShield</th>
+          <th>Sprays</th>
+          <th>Creams</th>
+          <th>Traditional Solutions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for block in section.blocks %}
+          <tr {{ block.shopify_attributes }}>
+            <td>{{ block.settings.title }}</td>
+            <td class="highlight">
+              {% if block.settings.moshield %}
+                <span class="moshield-check">✔</span>
+              {% else %}
+                <span class="moshield-cross">✘</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if block.settings.sprays %}
+                <span class="moshield-check">✔</span>
+              {% else %}
+                <span class="moshield-cross">✘</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if block.settings.creams %}
+                <span class="moshield-check">✔</span>
+              {% else %}
+                <span class="moshield-cross">✘</span>
+              {% endif %}
+            </td>
+            <td>
+              {% if block.settings.traditional %}
+                <span class="moshield-check">✔</span>
+              {% else %}
+                <span class="moshield-cross">✘</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

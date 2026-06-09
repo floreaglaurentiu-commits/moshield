@@ -1,0 +1,65 @@
+{% schema %}
+{
+  "name": "MoShield FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MoShield FAQ",
+      "blocks": [
+        { "type": "question", "settings": { "title": "How long does it last?", "answer": "Each MoShield bracelet is designed to provide effective mosquito protection for up to 15 days of continuous outdoor use." } },
+        { "type": "question", "settings": { "title": "Can children wear it?", "answer": "Yes, the bracelet is adjustable and perfectly safe for children. It is chemical-free and uses natural essential oils." } },
+        { "type": "question", "settings": { "title": "Is it waterproof?", "answer": "Absolutely. MoShield is 100% waterproof, making it perfect for swimming, rainy days, or intense workouts." } },
+        { "type": "question", "settings": { "title": "Can I wear it every day?", "answer": "Yes, its lightweight, premium design ensures comfort for all-day, everyday wear." } },
+        { "type": "question", "settings": { "title": "How many bracelets come in a package?", "answer": "Each standard package includes one premium MoShield bracelet and two replaceable protection cores." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="moshield-section" style="max-width: 800px;">
+  <div style="text-align: center; margin-bottom: 4rem;">
+    <h2 class="moshield-title-large">{{ section.settings.headline }}</h2>
+  </div>
+
+  <div class="moshield-glass-card" style="padding: 1rem 2rem;">
+    {% for block in section.blocks %}
+      <div class="moshield-faq-item" {{ block.shopify_attributes }}>
+        <div class="moshield-faq-question">
+          <span>{{ block.settings.title }}</span>
+          <svg class="moshield-faq-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </div>
+        <div class="moshield-faq-answer">
+          {{ block.settings.answer }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

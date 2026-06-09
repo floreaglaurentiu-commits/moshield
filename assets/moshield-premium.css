@@ -1,0 +1,374 @@
+/* MoShield Premium Landing Page CSS */
+:root {
+  --moshield-bg-light: #E7E7E7;
+  --moshield-bg-mid: #D9D9D9;
+  --moshield-bg-dark: #CFCFCF;
+  --moshield-text-primary: #111111;
+  --moshield-text-secondary: #5A5A5A;
+  --moshield-glass-bg: rgba(255, 255, 255, 0.15);
+  --moshield-glass-border: rgba(255, 255, 255, 0.35);
+  --moshield-font-family: 'SF Pro Display', 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --moshield-radius-lg: 24px;
+  --moshield-radius-md: 16px;
+  --moshield-radius-sm: 12px;
+}
+
+body.template-product-moshield {
+  background-color: var(--moshield-bg-light);
+  color: var(--moshield-text-primary);
+  font-family: var(--moshield-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Typography Utilities */
+.moshield-title-massive {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0 0 1rem;
+}
+
+.moshield-title-large {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.moshield-title-medium {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.moshield-subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--moshield-text-secondary);
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.moshield-text-body {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--moshield-text-secondary);
+}
+
+/* Glassmorphism Utilities */
+.moshield-glass-card {
+  background: var(--moshield-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--moshield-glass-border);
+  border-radius: var(--moshield-radius-lg);
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.moshield-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+.moshield-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.moshield-btn-primary {
+  background: var(--moshield-text-primary);
+  color: #FFFFFF;
+}
+
+.moshield-btn-primary:hover {
+  background: #333333;
+  transform: scale(1.02);
+}
+
+.moshield-btn-secondary {
+  background: var(--moshield-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--moshield-glass-border);
+  color: var(--moshield-text-primary);
+}
+
+.moshield-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Layout Spacing */
+.moshield-section {
+  padding: 8rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.moshield-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.moshield-grid-2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .moshield-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.moshield-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .moshield-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Image Utilities */
+.moshield-img-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--moshield-radius-lg);
+  overflow: hidden;
+  background: var(--moshield-glass-bg);
+  border: 1px solid var(--moshield-glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moshield-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Section Specific Overrides */
+/* Hero Section */
+.moshield-hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.moshield-hero-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.moshield-hero-card {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.moshield-hero-card svg {
+  width: 24px;
+  height: 24px;
+  color: var(--moshield-text-primary);
+}
+
+.moshield-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.moshield-hero-image-container {
+  position: relative;
+  height: 100%;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moshield-hero-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Alternating Feature */
+.moshield-feature-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+  .moshield-feature-row {
+    flex-direction: row;
+  }
+  .moshield-feature-row:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .moshield-feature-row > * {
+    flex: 1;
+  }
+}
+
+/* Table Comparison */
+.moshield-compare-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 4rem;
+}
+
+.moshield-compare-table th,
+.moshield-compare-table td {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--moshield-glass-border);
+}
+
+.moshield-compare-table th:first-child,
+.moshield-compare-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--moshield-text-primary);
+}
+
+.moshield-compare-table th {
+  font-weight: 600;
+  color: var(--moshield-text-secondary);
+  font-size: 1.125rem;
+}
+
+.moshield-compare-table th.highlight {
+  color: var(--moshield-text-primary);
+  font-size: 1.5rem;
+  background: var(--moshield-glass-bg);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  border: 1px solid var(--moshield-glass-border);
+  border-bottom: none;
+}
+
+.moshield-compare-table td.highlight {
+  background: var(--moshield-glass-bg);
+  border-left: 1px solid var(--moshield-glass-border);
+  border-right: 1px solid var(--moshield-glass-border);
+}
+
+.moshield-compare-table tr:last-child td.highlight {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border-bottom: 1px solid var(--moshield-glass-border);
+}
+
+.moshield-check {
+  color: #111111;
+  font-size: 1.5rem;
+}
+
+.moshield-cross {
+  color: #999999;
+  font-size: 1.25rem;
+}
+
+/* FAQ Accordion */
+.moshield-faq-item {
+  border-bottom: 1px solid var(--moshield-glass-border);
+  padding: 1.5rem 0;
+}
+
+.moshield-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.moshield-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: var(--moshield-text-secondary);
+  line-height: 1.5;
+}
+
+.moshield-faq-item.active .moshield-faq-answer {
+  max-height: 200px;
+  margin-top: 1rem;
+}
+
+.moshield-faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.moshield-faq-item.active .moshield-faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Sticky Mobile Buy Button */
+.moshield-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(231, 231, 231, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--moshield-glass-border);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.moshield-sticky-bar.visible {
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .moshield-sticky-bar {
+    display: none;
+  }
+}

@@ -1,0 +1,53 @@
+{% schema %}
+{
+  "name": "MoShield CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Enjoy The Outdoors<br>Without The Distraction."
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Subheadline",
+      "default": "Lightweight mosquito protection designed for everyday life."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Get Your MoShield Today"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MoShield CTA"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="moshield-section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+  <div style="max-width: 900px;">
+    
+    <h2 class="moshield-title-massive" style="margin-bottom: 2rem;">
+      {{ section.settings.headline }}
+    </h2>
+    
+    <p class="moshield-subtitle" style="font-size: 1.5rem; margin-bottom: 4rem;">
+      {{ section.settings.subheadline }}
+    </p>
+    
+    <a href="{{ section.settings.btn_link | default: '#purchase' }}" class="moshield-btn moshield-btn-primary" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
+      {{ section.settings.btn_text }}
+    </a>
+    
+  </div>
+</div>

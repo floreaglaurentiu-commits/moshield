@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "moshield-hero": {
+      "type": "moshield-hero",
+      "settings": {}
+    },
+    "moshield-problem": {
+      "type": "moshield-problem",
+      "settings": {}
+    },
+    "moshield-benefits": {
+      "type": "moshield-benefits",
+      "settings": {}
+    },
+    "moshield-how-it-works": {
+      "type": "moshield-how-it-works",
+      "settings": {}
+    },
+    "moshield-lifestyle": {
+      "type": "moshield-lifestyle",
+      "settings": {}
+    },
+    "moshield-compare": {
+      "type": "moshield-compare",
+      "settings": {}
+    },
+    "moshield-reviews": {
+      "type": "moshield-reviews",
+      "settings": {}
+    },
+    "moshield-faq": {
+      "type": "moshield-faq",
+      "settings": {}
+    },
+    "moshield-cta": {
+      "type": "moshield-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "moshield-hero",
+    "moshield-problem",
+    "moshield-benefits",
+    "moshield-how-it-works",
+    "moshield-lifestyle",
+    "moshield-compare",
+    "moshield-reviews",
+    "moshield-faq",
+    "moshield-cta"
+  ]
+}

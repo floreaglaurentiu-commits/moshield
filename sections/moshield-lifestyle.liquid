@@ -1,0 +1,66 @@
+{% schema %}
+{
+  "name": "MoShield Lifestyle",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "story",
+      "name": "Lifestyle Story",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Story Image"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Body Text",
+          "default": "Premium lifestyle imagery paired with engaging storytelling to highlight the value of the product in real-world scenarios."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MoShield Lifestyle",
+      "blocks": [
+        { "type": "story", "settings": { "headline": "Travel With Confidence" } },
+        { "type": "story", "settings": { "headline": "Perfect For Camping Trips" } },
+        { "type": "story", "settings": { "headline": "Enjoy Outdoor Evenings Again" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="moshield-section">
+  {% for block in section.blocks %}
+    <div class="moshield-feature-row" {{ block.shopify_attributes }}>
+      
+      <div class="moshield-img-wrapper" style="height: 600px;">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: '1000x' }}" alt="{{ block.settings.headline }}">
+        {% else %}
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+            <span style="color: var(--moshield-text-secondary); font-size: 1.25rem;">Premium Lifestyle Image Placeholder</span>
+          </div>
+        {% endif %}
+      </div>
+      
+      <div style="padding: 2rem;">
+        <h2 class="moshield-title-large" style="margin-bottom: 2rem;">{{ block.settings.headline }}</h2>
+        <p class="moshield-text-body" style="font-size: 1.5rem; line-height: 1.6; max-width: 500px;">
+          {{ block.settings.text }}
+        </p>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,101 @@
+{% schema %}
+{
+  "name": "MoShield Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "What Our Customers Say"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Review Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MoShield Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author": "Sarah M.",
+            "rating": 5,
+            "content": "Absolutely love this bracelet. I took it on my camping trip and didn't get a single bite. Plus, it looks like a premium accessory!"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "David L.",
+            "rating": 5,
+            "content": "Finally a solution that doesn't involve messy, awful-smelling sprays. MoShield is comfortable and incredibly effective."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Emma W.",
+            "rating": 5,
+            "content": "Bought these for the whole family for our vacation. Waterproof, easy to wear, and gave us total peace of mind outdoors."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="moshield-section">
+  <div style="text-align: center; margin-bottom: 4rem;">
+    <h2 class="moshield-title-large">{{ section.settings.headline }}</h2>
+  </div>
+
+  <div class="moshield-grid moshield-grid-3">
+    {% for block in section.blocks %}
+      <div class="moshield-glass-card" style="display: flex; flex-direction: column;" {{ block.shopify_attributes }}>
+        
+        <div style="display: flex; gap: 4px; color: #111111; margin-bottom: 1.5rem;">
+          {% for i in (1..block.settings.rating) %}
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          {% endfor %}
+        </div>
+        
+        <p class="moshield-text-body" style="font-size: 1.25rem; flex-grow: 1; font-style: italic; margin-bottom: 2rem;">
+          "{{ block.settings.content }}"
+        </p>
+        
+        <div style="font-weight: 600; font-size: 1.125rem;">
+          {{ block.settings.author }}
+        </div>
+        
+      </div>
+    {% endfor %}
+  </div>
+</div>
